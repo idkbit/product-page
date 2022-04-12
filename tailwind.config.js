@@ -9,7 +9,7 @@ module.exports = {
         neutralDGB: 'hsl(219, 9%, 45%)',
         neutralGB: 'hsl(220, 14%, 75%)',
         white: 'hsl(0, 0%, 100%)',
-        lightboxBG: 'hsl(0, 0%, 0%)',
+        lightboxBG: 'hsla(0, 0%, 0%, 0.75)',
       },
     },
   },
