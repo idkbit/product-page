@@ -13,7 +13,7 @@ export const Cart = () => {
           />
         </svg>
       </button>
-      <img className='w-10 h-10 rounded-full' src={avatar} alt='avatar.' />
+      <img className='w-8 h-8 rounded-full' src={avatar} alt='avatar.' />
     </div>
   );
 };
