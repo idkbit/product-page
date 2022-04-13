@@ -33,7 +33,7 @@ export const Header = ({ toggleMenu }: Props) => {
             <path
               d='M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z'
               className='fill-[#69707D] group-hover:fill-neutralVDB'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             />
           </svg>
         </button>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header, Sidemenu } from './components';
+import { Gallery, Header, Sidemenu } from './components';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,8 +9,12 @@ function App() {
   };
   return (
     <>
-      <div className='xl:max-w-7xl lg:max-w-4xl sm:max-w-2xl m-auto'>
+      <div className='container m-auto'>
         <Header toggleMenu={toggleMenu} />
+        <div className='flex mt-20 md:px-20'>
+          <Gallery />
+          <div className='flex-1'>asd</div>
+        </div>
       </div>
 
       <Sidemenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
