@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Gallery, Header, Sidemenu } from './components';
+import { Gallery, Header, Info, Sidemenu } from './components';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ function App() {
         <Header toggleMenu={toggleMenu} />
         <div className='flex mt-20 md:px-20'>
           <Gallery />
-          <div className='flex-1'>asd</div>
+          <Info />
         </div>
       </div>
 
