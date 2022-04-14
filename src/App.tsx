@@ -3,14 +3,19 @@ import { Gallery, Header, Info, Sidemenu } from './components';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
     <>
-      <div className='container m-auto'>
-        <Header toggleMenu={toggleMenu} />
+      <div className='container m-auto' onClick={() => setIsCartVisible(false)}>
+        <Header
+          isCartVisible={isCartVisible}
+          setIsCartVisible={setIsCartVisible}
+          toggleMenu={toggleMenu}
+        />
         <div className='flex mt-20 md:px-20'>
           <Gallery />
           <Info />

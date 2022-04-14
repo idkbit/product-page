@@ -1,13 +1,20 @@
 import React from 'react';
 import { Cart } from '../../components';
+import CartContext from '../../context';
 
 interface Props {
   toggleMenu: () => void;
+  isCartVisible: boolean;
+  setIsCartVisible: (state: boolean) => void;
 }
 
 export const categories = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
-export const Header = ({ toggleMenu }: Props) => {
+export const Header = ({
+  toggleMenu,
+  isCartVisible,
+  setIsCartVisible,
+}: Props) => {
   return (
     <header className='border-b-[1px] border-b-neutralGB flex justify-between pt-4 items-baseline px-8'>
       <div className='flex items-baseline pb-8 lg:pb-0 flex-row-reverse lg:flex-row'>
@@ -38,7 +45,9 @@ export const Header = ({ toggleMenu }: Props) => {
           </svg>
         </button>
       </div>
-      <Cart />
+      <CartContext.Provider value={{ isCartVisible, setIsCartVisible }}>
+        <Cart />
+      </CartContext.Provider>
     </header>
   );
 };

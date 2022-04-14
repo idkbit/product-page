@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useContext } from 'react';
+import CartContext from '../../context';
 import avatar from '../../images/image-avatar.png';
 
 export const Cart = () => {
-  const [isCartVisible, setIsCartVisible] = useState(false);
+  const { isCartVisible, setIsCartVisible } = useContext(CartContext);
+
   return (
-    <div className='flex gap-8 items-center'>
+    <div
+      className='flex gap-8 items-center relative'
+      onClick={(e: MouseEvent) => e.stopPropagation()}
+    >
       <button
         className='group'
         onClick={() => setIsCartVisible(!isCartVisible)}
@@ -18,11 +23,25 @@ export const Cart = () => {
         </svg>
       </button>
       <img
+        onClick={() => (isCartVisible ? setIsCartVisible(false) : null)}
         className='w-12 h-12 rounded-full border-2 border-transparent hover:border-primaryOrange hover:cursor-pointer'
         src={avatar}
         alt='avatar.'
       />
-      <div className={isCartVisible ? 'block' : 'hidden'}>cart</div>
+      <div
+        className={
+          isCartVisible
+            ? 'block absolute right-0 top-14 shadow-lg shadow-neutralGB w-60 bg-white'
+            : 'hidden'
+        }
+      >
+        <p className='text-neutralVDB p-4 font-bold border-b-[1px] border-b-neutralGB'>
+          Cart
+        </p>
+        <div className='min-h-[10rem] flex justify-center items-center'>
+          <p className='text-neutralDGB font-bold'>Your cart is empty.</p>
+        </div>
+      </div>
     </div>
   );
 };
