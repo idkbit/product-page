@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import { Gallery, Header, Info, Sidemenu } from './components';
 
+export interface CartItem {
+  amount: number;
+  product: string;
+  price: number;
+  img: string;
+  id: string;
+}
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,10 +24,12 @@ function App() {
           isCartVisible={isCartVisible}
           setIsCartVisible={setIsCartVisible}
           toggleMenu={toggleMenu}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
         />
         <div className='flex mt-20 md:px-20'>
           <Gallery />
-          <Info />
+          <Info setCartItems={setCartItems} cartItems={cartItems} />
         </div>
       </div>
 

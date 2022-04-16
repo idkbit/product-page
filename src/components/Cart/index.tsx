@@ -1,9 +1,16 @@
 import React, { MouseEvent, useContext } from 'react';
+import { CartItem } from '../../App';
 import CartContext from '../../context';
 import avatar from '../../images/image-avatar.png';
 
 export const Cart = () => {
+  const { cartItems: items, setCartItems } = useContext(CartContext);
   const { isCartVisible, setIsCartVisible } = useContext(CartContext);
+
+  const handleDelete = (id: string) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setCartItems(updatedItems);
+  };
 
   return (
     <div
@@ -31,15 +38,57 @@ export const Cart = () => {
       <div
         className={
           isCartVisible
-            ? 'block absolute right-0 top-14 shadow-lg shadow-neutralGB w-60 bg-white'
+            ? 'block absolute right-0 top-14 shadow-lg shadow-neutralGB w-80 bg-white'
             : 'hidden'
         }
       >
         <p className='text-neutralVDB p-4 font-bold border-b-[1px] border-b-neutralGB'>
           Cart
         </p>
-        <div className='min-h-[10rem] flex justify-center items-center'>
-          <p className='text-neutralDGB font-bold'>Your cart is empty.</p>
+        <div className='min-h-[10rem] flex flex-col gap-4'>
+          {items.length > 0 ? (
+            items.map((item) => (
+              <div key={item.id} className='flex gap-4 px-4 items-center'>
+                <img className='w-10 h-10 rounded' src={item.img} alt='' />
+                <div className='text-sm text-neutralDGB'>
+                  <p className=''>{item.product}</p>
+                  <p>
+                    {item.price.toFixed(2)} x {item.amount}{' '}
+                    <span className='font-bold'>
+                      {(item.price * item.amount).toFixed(2)}$
+                    </span>
+                  </p>
+                </div>
+                <button
+                  onClick={() => handleDelete(item.id)}
+                  className='text-neutralGB hover:text-neutralVDB'
+                >
+                  <svg
+                    width='14'
+                    height='16'
+                    xmlns='http://www.w3.org/2000/svg'
+                    xmlnsXlink='http://www.w3.org/1999/xlink'
+                  >
+                    <defs>
+                      <path
+                        d='M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z'
+                        id='a'
+                      />
+                    </defs>
+                    <use
+                      fill='currentColor'
+                      fillRule='nonzero'
+                      xlinkHref='#a'
+                    />
+                  </svg>
+                </button>
+              </div>
+            ))
+          ) : (
+            <p className='text-neutralDGB font-bold translate-x-1/4 translate-y-14'>
+              Your cart is empty.
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import minus from '../../images/icon-minus.svg';
 import plus from '../../images/icon-plus.svg';
 
-export const Counter = () => {
-  const [count, setCount] = useState(1);
+interface Props {
+  count: number;
+  setCount: (count: number) => void;
+}
 
+export const Counter = ({ count, setCount }: Props) => {
   const handleMinusClick = () => {
     if (count === 1) return;
     setCount(count - 1);

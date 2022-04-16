@@ -1,4 +1,5 @@
 import React from 'react';
+import { CartItem } from '../../App';
 import { Cart } from '../../components';
 import CartContext from '../../context';
 
@@ -6,6 +7,8 @@ interface Props {
   toggleMenu: () => void;
   isCartVisible: boolean;
   setIsCartVisible: (state: boolean) => void;
+  cartItems: CartItem[];
+  setCartItems: (items: CartItem[]) => void;
 }
 
 export const categories = ['Collections', 'Men', 'Women', 'About', 'Contact'];
@@ -14,6 +17,8 @@ export const Header = ({
   toggleMenu,
   isCartVisible,
   setIsCartVisible,
+  cartItems,
+  setCartItems,
 }: Props) => {
   return (
     <header className='border-b-[1px] border-b-neutralGB flex justify-between pt-4 items-baseline px-8'>
@@ -45,7 +50,9 @@ export const Header = ({
           </svg>
         </button>
       </div>
-      <CartContext.Provider value={{ isCartVisible, setIsCartVisible }}>
+      <CartContext.Provider
+        value={{ isCartVisible, setIsCartVisible, cartItems, setCartItems }}
+      >
         <Cart />
       </CartContext.Provider>
     </header>
