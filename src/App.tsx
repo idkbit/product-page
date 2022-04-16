@@ -27,7 +27,7 @@ function App() {
           cartItems={cartItems}
           setCartItems={setCartItems}
         />
-        <div className='flex mt-20 md:px-20'>
+        <div className='flex flex-col lg:flex-row mt-20 lg:px-20'>
           <Gallery />
           <Info setCartItems={setCartItems} cartItems={cartItems} />
         </div>

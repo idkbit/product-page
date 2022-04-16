@@ -7,6 +7,8 @@ import image1 from '../../images/image-product-1.jpg';
 import image2 from '../../images/image-product-2.jpg';
 import image3 from '../../images/image-product-3.jpg';
 import image4 from '../../images/image-product-4.jpg';
+import prev from '../../images/icon-previous.svg';
+import next from '../../images/icon-next.svg';
 
 const thumbnails = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
 const images = [image1, image2, image3, image4];
@@ -22,12 +24,46 @@ export const Gallery = () => {
     setSelectedImg({ image: img, thumbnail });
   };
 
+  const handleNextClick = () => {
+    if (selectedImg.image === image4) {
+      setSelectedImg({ ...selectedImg, image: image1 });
+      return;
+    }
+    setSelectedImg({
+      ...selectedImg,
+      image: images[images.findIndex((el) => el === selectedImg.image) + 1],
+    });
+  };
+
+  const handlePrevClick = () => {
+    if (selectedImg.image === image1) {
+      setSelectedImg({ ...selectedImg, image: image4 });
+      return;
+    }
+    setSelectedImg({
+      ...selectedImg,
+      image: images[images.findIndex((el) => el === selectedImg.image) - 1],
+    });
+  };
+
   return (
     <div className='flex-1'>
-      <div className='overflow-hidden rounded-lg mb-8'>
-        <img src={selectedImg.image} alt='sneakers.' className='w-full' />
+      <div className='overflow-hidden md:rounded-lg mb-8 relative'>
+        <button
+          onClick={handlePrevClick}
+          className='absolute bg-white w-10 h-10 rounded-full flex justify-center items-center left-8 top-1/2 md:hidden'
+        >
+          <img src={prev} alt='' />
+        </button>
+        <img src={selectedImg.image} alt='sneakers.' className='max-w-full' />
+        <button
+          onClick={handleNextClick}
+          className='absolute bg-white w-10 h-10 rounded-full flex justify-center items-center right-8 top-1/2 md:hidden'
+        >
+          <img src={next} alt='' />
+        </button>
       </div>
-      <div className='flex gap-8'>
+      <div className='hidden md:flex md:gap-8'>
         {thumbnails.map((thumbnail) => (
           <div
             key={thumbnail}

@@ -45,13 +45,13 @@ export const Cart = () => {
         <p className='text-neutralVDB p-4 font-bold border-b-[1px] border-b-neutralGB'>
           Cart
         </p>
-        <div className='min-h-[10rem] flex flex-col gap-4'>
+        <div className='min-h-[10rem] py-4 flex flex-col gap-4'>
           {items.length > 0 ? (
             items.map((item) => (
               <div key={item.id} className='flex gap-4 px-4 items-center'>
                 <img className='w-10 h-10 rounded' src={item.img} alt='' />
                 <div className='text-sm text-neutralDGB'>
-                  <p className=''>{item.product}</p>
+                  <p className='text-ellipsis'>{item.product}</p>
                   <p>
                     {item.price.toFixed(2)} x {item.amount}{' '}
                     <span className='font-bold'>
@@ -89,6 +89,11 @@ export const Cart = () => {
               Your cart is empty.
             </p>
           )}
+          {items.length > 0 ? (
+            <button className='bg-primaryOrange mx-4 rounded py-2 text-white hover:bg-opacity-75'>
+              Checkout
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export const Info = ({ setCartItems, cartItems }: Props) => {
   };
 
   return (
-    <div className='flex-1 lg:px-40 py-20'>
+    <div className='flex-1 px-4 lg:px-12 py-8 lg:py-12'>
       <h3 className='text-md text-primaryOrange uppercase font-bold tracking-wider'>
         sneaker company
       </h3>
@@ -50,11 +50,11 @@ export const Info = ({ setCartItems, cartItems }: Props) => {
         </div>
         <span className='text-neutralGB font-bold line-through'>$250.00</span>
       </div>
-      <div className='flex gap-12 mt-8'>
+      <div className='flex flex-col md:flex-row gap-12 mt-8'>
         <Counter count={count} setCount={setCount} />
         <button
           onClick={() => addToCart(count, productName, price, img)}
-          className='flex flex-[3] gap-4 bg-primaryOrange text-white justify-center items-center px-4 rounded-md hover:opacity-75'
+          className='flex md:flex-[3] py-4 gap-4 bg-primaryOrange text-white justify-center items-center px-4 rounded-md hover:opacity-75'
         >
           <svg width='22' height='20' xmlns='http://www.w3.org/2000/svg'>
             <path
