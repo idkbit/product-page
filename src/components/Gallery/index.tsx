@@ -31,7 +31,8 @@ export const Gallery = () => {
   }, []);
 
   const handleSelect = (thumbnail: string) => {
-    const img = thumbnail.split('-').slice(0, -1).join('-') + '.jpg';
+    const img =
+      'assets/' + thumbnail.split('-').slice(1, -1).join('-') + '.jpg';
     setSelectedImg({ image: img, thumbnail });
   };
 
