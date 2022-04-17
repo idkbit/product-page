@@ -19,16 +19,16 @@ export const Counter = ({ count, setCount }: Props) => {
     <div className='flex'>
       <button
         onClick={handleMinusClick}
-        className='flex justify-center items-center p-4 bg-neutralGB bg-opacity-20 rounded-l-md'
+        className='flex justify-center items-center px-6 py-4 bg-neutralGB bg-opacity-20 rounded-l-md'
       >
         <img src={minus} alt='decrease amount of items.' />
       </button>
-      <span className='flex w-4 px-8 py-4 font-bold text-neutralVDB justify-center items-center bg-neutralGB bg-opacity-20'>
+      <span className='flex flex-grow w-4 px-8 py-4 font-bold text-neutralVDB justify-center items-center bg-neutralGB bg-opacity-20'>
         {count}
       </span>
       <button
         onClick={handlePlusClick}
-        className='flex justify-center items-center p-4 bg-neutralGB bg-opacity-20 rounded-r-md'
+        className='flex justify-center items-center px-6 py-4 bg-neutralGB bg-opacity-20 rounded-r-md'
       >
         <img src={plus} alt='increase amount of items.' />
       </button>
