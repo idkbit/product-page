@@ -23,7 +23,7 @@ export const Header = ({
   return (
     <header className='border-b-[1px] border-b-neutralGB flex justify-between pt-4 items-baseline px-8'>
       <div className='flex items-baseline pb-8 lg:pb-0 flex-row-reverse lg:flex-row'>
-        <h1 className='text-xl md:text-3xl md:text-4xl font-bold text-neutralVDB mr-4 md:mr-12 lowercase tracking-tight'>
+        <h1 className='text-xl md:text-3xl lg:text-4xl font-bold text-neutralVDB mr-4 md:mr-12 lowercase tracking-tight'>
           sneakers
         </h1>
         <nav className='hidden lg:block'>
