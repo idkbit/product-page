@@ -3,7 +3,7 @@ import { CartItem } from '../../App';
 import { Counter } from '../Counter';
 import { v4 as uuid } from 'uuid';
 
-import img from '../../images/image-product-1-thumbnail.jpg';
+import img from '/images/image-product-1-thumbnail.jpg';
 
 interface Props {
   setCartItems: (cartItems: CartItem[]) => void;

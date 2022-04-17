@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import minus from '../../images/icon-minus.svg';
-import plus from '../../images/icon-plus.svg';
+import minus from '/images/icon-minus.svg';
+import plus from '/images/icon-plus.svg';
 
 interface Props {
   count: number;

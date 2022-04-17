@@ -1,7 +1,6 @@
 import React, { MouseEvent, useContext } from 'react';
-import { CartItem } from '../../App';
 import CartContext from '../../context';
-import avatar from '../../images/image-avatar.png';
+import avatar from '/images/image-avatar.png';
 
 export const Cart = () => {
   const { cartItems: items, setCartItems } = useContext(CartContext);

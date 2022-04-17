@@ -1,8 +1,8 @@
 import React, { useState, MouseEvent, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { thumbnails, images } from '../Gallery';
-import prev from '../../images/icon-previous.svg';
-import next from '../../images/icon-next.svg';
+import prev from '/images/icon-previous.svg';
+import next from '/images/icon-next.svg';
 
 interface Props {
   setIsLightBoxActive: (value: boolean) => void;
