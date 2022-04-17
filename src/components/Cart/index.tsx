@@ -12,13 +12,15 @@ export const Cart = () => {
     setCartItems(updatedItems);
   };
 
+  const totalAmount = items.reduce((a, c) => a + c.amount, 0);
+
   return (
     <div
       className='flex gap-8 items-center relative'
       onClick={(e: MouseEvent) => e.stopPropagation()}
     >
       <button
-        className='group'
+        className='group relative'
         onClick={() => setIsCartVisible(!isCartVisible)}
       >
         <svg width='22' height='20' xmlns='http://www.w3.org/2000/svg'>
@@ -28,6 +30,11 @@ export const Cart = () => {
             fillRule='nonzero'
           />
         </svg>
+        {totalAmount > 0 && (
+          <span className='absolute -top-2 -right-3 w-6 h-4 flex justify-center px- items-center bg-primaryOrange text-white rounded-lg text-xs'>
+            {totalAmount}
+          </span>
+        )}
       </button>
       <img
         onClick={() => (isCartVisible ? setIsCartVisible(false) : null)}
@@ -38,7 +45,7 @@ export const Cart = () => {
       <div
         className={
           isCartVisible
-            ? 'block absolute right-0 top-14 shadow-lg shadow-neutralGB w-80 bg-white'
+            ? 'block absolute right-0 top-14 shadow-lg shadow-neutralGB w-80 bg-white z-10'
             : 'hidden'
         }
       >

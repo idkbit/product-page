@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Gallery, Header, Info, Sidemenu } from './components';
+import { Gallery, Header, Info, LightBox, Sidemenu } from './components';
 
 export interface CartItem {
   amount: number;
